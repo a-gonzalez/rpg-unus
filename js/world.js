@@ -1,3 +1,5 @@
+import * as util from "./util.js";
+
 export default class World
 {
     constructor()
@@ -12,13 +14,15 @@ export default class World
         this.level_1 = {};
     }
 
-    drawGrid()
+    drawGrid(context)
     {
-        for (let row = 0; row < ROWS; row++)
+        let tilesize = util.getTileSize();
+
+        for (let row = 0; row < util.getRowCount(); row++)
         {
-            for (let column = 0; column < COLUMNS; column++)
+            for (let column = 0; column < util.getColumnCount(); column++)
             {
-                context.strokeRect(column * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                context.strokeRect(column * tilesize, row * tilesize, tilesize, tilesize);
             }
         }
     }

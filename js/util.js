@@ -7,6 +7,16 @@ const getTileSize = () =>
     return TILE_SIZE;
 };
 
+const getColumnCount = () =>
+{
+    return COLUMNS;
+};
+
+const getRowCount = () =>
+{
+    return ROWS;
+};
+
 const getScreenWidth = () =>
 {
     return TILE_SIZE * COLUMNS;
@@ -17,7 +27,7 @@ const getScreenHeight = () =>
     return TILE_SIZE * ROWS;
 };
 
-const drawGrid = (context) =>
+/*const drawGrid = (context) =>
 {
     for (let row = 0; row < ROWS; row++)
     {
@@ -26,6 +36,6 @@ const drawGrid = (context) =>
             context.strokeRect(column * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
         }
     }
-};
+};*/
 
-export { getTileSize, getScreenWidth, getScreenHeight, drawGrid };
+export { getTileSize, getScreenWidth, getScreenHeight, getRowCount, getColumnCount };

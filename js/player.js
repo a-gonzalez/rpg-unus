@@ -1,17 +1,16 @@
-export default class Player
+import Asset from "./asset.js";
+
+export default class Player extends Asset
 {
-    constructor()
+    constructor(game, sprite, location, scale)
     {
+        super(game, sprite, location, scale);
+
         console.log(`${this.constructor.name}.ctor @ ${new Date().toLocaleString()}`);
     }
 
     draw(context)
     {
-        
-    }
-
-    update(delta_time)
-    {
-
+        super.draw(context);
     }
 }

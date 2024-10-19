@@ -1,9 +1,6 @@
 import World from "./world.js";
-//import * as util from "./util.js";
-
-export const TILE_SIZE = 32;
-export const COLUMNS = 15;
-export const ROWS = 20;
+import Player from "./player.js";
+import * as util from "./util.js";
 
 export default class Game
 {
@@ -15,9 +12,10 @@ export default class Game
 
     }
 
-    render(delta_time)
+    render()
     {
         this.world.drawGrid(this.context);
+        this.player.draw(this.context);
     }
 
     test()
@@ -27,38 +25,14 @@ export default class Game
 
     initialize(screen)
     {
-        screen.width = this.getScreenWidth();
-        screen.height = this.getScreenHeight();
+        this.world = new World();
+        this.player = new Player(this, null, null, null);
+
+        screen.width = util.getScreenWidth();
+        screen.height = util.getScreenHeight();
 
         this.screen = screen;
         this.context = this.screen.getContext("2d");
         this.game_over = false;
-
-        this.world = new World();
-    }
-
-    getTileSize()
-    {
-        return TILE_SIZE;
-    }
-
-    getRowCount()
-    {
-        return ROWS;
-    }
-
-    getColumnCount()
-    {
-        return COLUMNS;
-    }
-
-    getScreenWidth()
-    {
-        return TILE_SIZE * COLUMNS;
-    }
-
-    getScreenHeight()
-    {
-        return TILE_SIZE * ROWS;
     }
 }
