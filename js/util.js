@@ -27,6 +27,11 @@ const getScreenHeight = () =>
     return TILE_SIZE * ROWS;
 };
 
+const LEFT = "LEFT";
+const RIGHT = "RIGHT";
+const UP = "UP";
+const DOWN = "DOWN";
+
 /*const drawGrid = (context) =>
 {
     for (let row = 0; row < ROWS; row++)
@@ -38,4 +43,14 @@ const getScreenHeight = () =>
     }
 };*/
 
-export { getTileSize, getScreenWidth, getScreenHeight, getRowCount, getColumnCount };
+export {
+    getTileSize,
+    getScreenWidth,
+    getScreenHeight,
+    getRowCount,
+    getColumnCount,
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN
+};

@@ -1,4 +1,4 @@
-import * as util from "./util.js";
+import { getTileSize, getRowCount, getColumnCount } from "./util.js";
 
 export default class World
 {
@@ -16,11 +16,11 @@ export default class World
 
     drawGrid(context)
     {
-        let tilesize = util.getTileSize();
+        let tilesize = getTileSize();
 
-        for (let row = 0; row < util.getRowCount(); row++)
+        for (let row = 0; row < getRowCount(); row++)
         {
-            for (let column = 0; column < util.getColumnCount(); column++)
+            for (let column = 0; column < getColumnCount(); column++)
             {
                 context.strokeRect(column * tilesize, row * tilesize, tilesize, tilesize);
             }
