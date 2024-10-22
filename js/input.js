@@ -59,7 +59,7 @@ export default class Input
         { // if not present in array, add to start
             this.keys.unshift(key);
         }
-        console.info(key, this.keys);
+        //console.info(key, this.keys);
     }
 
     keyReleased(key)
@@ -70,7 +70,7 @@ export default class Input
         {
             this.keys.splice(index, 1);
         }
-        console.info(key, this.keys);
+        //console.info(key, this.keys);
     }
 
     get lastKey()

@@ -15,17 +15,20 @@ export default class Asset
 
         this.game = game;
         this.sprite = sprite ?? {
-            x: 0, 
+            sheet: new Image(),
+            x: 0,
             y: 0,
             width: tilesize,
-            height: tilesize,
-            image: ""
+            height: tilesize
         };
         this.position = position ?? { x: 0, y: 0 };
         this.scale = scale ?? 1;
 
         this.destinationPosition = { x: this.position.x, y: this.position.y };
         this.distanceToTravel = { x: 0, y: 0 };
+
+        this.width = this.sprite.width * this.scale;
+        this.height = this.sprite.height * this.scale;
     }
 
     moveTowards(destination, speed)
@@ -62,6 +65,8 @@ export default class Asset
     {
         let tilesize = getTileSize();
 
+        context.fillStyle = "#00ff00";
         context.fillRect(this.position.x, this.position.y, tilesize, tilesize);
+        context.drawImage(this.sprite.sheet, this.sprite.x * this.sprite.width, this.sprite.y * this.sprite.height, this.sprite.width, this.sprite.width, this.position.x, this.position.y, this.width, this.height);
     }
 }

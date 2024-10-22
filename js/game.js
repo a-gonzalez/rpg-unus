@@ -22,16 +22,33 @@ export default class Game
 
         this.player.update(delta_time)
         this.player.draw(this.context);
-        
+
         this.world.drawForeground(this.context);
     }
 
     initialize(screen)
     {
-        this.world = new World();
-        this.player = new Player({ game: this, position: { x: 1 * getTileSize(), y: 2 * getTileSize() }});
-        this.input = new Input();
+        let image = new Image();
+        image.src = "./img/player.png";
 
+        let tilesize = getTileSize();
+
+        let configuration = {
+            game: this,
+            sprite: {
+                sheet: image,
+                x: 4,
+                y: 2,
+                width: 64,
+                height: 64
+            },
+            position: { x: 1 * tilesize, y: 2 * tilesize },
+            scale: 1
+        };
+
+        this.world = new World();
+        this.player = new Player(configuration);
+        this.input = new Input();
 
         screen.width = getScreenWidth();
         screen.height = getScreenHeight();
