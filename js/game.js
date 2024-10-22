@@ -13,16 +13,22 @@ export default class Game
         this.initialize(screen);
     }
 
-    render()
+    render(delta_time)
     {
+        this.context.clearRect(0, 0, this.screen.width, this.screen.height);
+
+        this.world.drawBackground(this.context);
+        this.world.drawForeground(this.context);
         this.world.drawGrid(this.context);
+
+        this.player.update(delta_time)
         this.player.draw(this.context);
     }
 
     initialize(screen)
     {
         this.world = new World();
-        this.player = new Player({ position: { x: 7, y: 10 }});
+        this.player = new Player({ game: this, position: { x: 5, y: 5 }});
         this.input = new Input();
 
         screen.width = getScreenWidth();

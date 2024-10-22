@@ -2,6 +2,11 @@ const TILE_SIZE = 32;
 const COLUMNS = 15;
 const ROWS = 20;
 
+const getBackgroundPath = () =>
+{
+    return "../img/backgroundlevel1.png";
+};
+
 const getTileSize = () =>
 {
     return TILE_SIZE;
@@ -49,6 +54,7 @@ export {
     getScreenHeight,
     getRowCount,
     getColumnCount,
+    getBackgroundPath,
     LEFT,
     RIGHT,
     UP,

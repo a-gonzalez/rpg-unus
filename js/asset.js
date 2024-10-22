@@ -15,7 +15,7 @@ export default class Asset
 
         this.game = game;
         this.sprite = sprite ?? {
-            x: 0,
+            x: 0, 
             y: 0,
             width: tilesize,
             height: tilesize,
@@ -23,6 +23,14 @@ export default class Asset
         };
         this.position = position ?? { x: 0, y: 0 };
         this.scale = scale ?? 1;
+
+        this.destinationPosition = { x: this.position.x, y: this.position.y };
+        this.distanceToTravel = { x: 0, y: 0 };
+    }
+
+    moveTowards(destinationPosition, speed)
+    {
+
     }
 
     draw(context)
@@ -30,10 +38,5 @@ export default class Asset
         let tilesize = getTileSize();
 
         context.fillRect(this.position.x * tilesize, this.position.y * tilesize, tilesize, tilesize);
-    }
-
-    update(delta_time)
-    {
-
     }
 }

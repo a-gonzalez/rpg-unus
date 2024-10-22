@@ -28,7 +28,6 @@ export default class Input
             {
                 this.keyPressed(LEFT);
             }
-
         });
 
         addEventListener("keyup", (event) =>
@@ -57,7 +56,7 @@ export default class Input
     keyPressed(key)
     {
         if (this.keys.indexOf(key) === -1)
-        { // if not present in array, add to
+        { // if not present in array, add to start
             this.keys.unshift(key);
         }
         console.info(key, this.keys);

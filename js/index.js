@@ -2,7 +2,7 @@ import Game from "./game.js";
 
 addEventListener("load", () =>
 {
-    console.log(`Index @ ${new Date().toLocaleString()}`);
+    console.info(`Index @ ${new Date().toLocaleString()}`);
 
     const screen = document.getElementById("screen");
     const game = new Game(screen);
