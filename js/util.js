@@ -37,6 +37,8 @@ const RIGHT = "RIGHT";
 const UP = "UP";
 const DOWN = "DOWN";
 
+const HALF_TILE = TILE_SIZE * 0.5;
+
 /*const drawGrid = (context) =>
 {
     for (let row = 0; row < ROWS; row++)
@@ -58,5 +60,6 @@ export {
     LEFT,
     RIGHT,
     UP,
-    DOWN
+    DOWN,
+    HALF_TILE
 };
