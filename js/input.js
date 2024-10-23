@@ -2,10 +2,11 @@ import { LEFT, RIGHT, UP, DOWN } from "./util.js";
 
 export default class Input
 {
-    constructor()
+    constructor(game)
     {
         console.log(`${this.constructor.name}.ctor @ ${new Date().toLocaleString()}`);
 
+        this.game = game;
         this.keys = [];
 
         addEventListener("keydown", (event) =>
@@ -27,6 +28,10 @@ export default class Input
             else if (event.key === "ArrowLeft" || event.key.toLocaleLowerCase() === "a")
             {
                 this.keyPressed(LEFT);
+            }
+            else if (event.key.toLocaleLowerCase() === "t")
+            {
+                this.game.toggleDebug();
             }
         });
 

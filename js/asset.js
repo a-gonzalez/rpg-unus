@@ -30,7 +30,6 @@ export default class Asset
         this.width = this.sprite.width * this.scale;
         this.height = this.sprite.height * this.scale;
         this.half_width = this.width * 0.5;
-        this.half_height = this.height * 0.5;
     }
 
     moveTowards(destination, speed)
@@ -67,14 +66,16 @@ export default class Asset
     {
         let tilesize = getTileSize();
 
-        context.save();
-        context.fillStyle = "#00ff00";
-        context.fillRect(this.position.x, this.position.y, tilesize, tilesize);
-
-        context.strokeStyle = "#ffff00";
-        context.strokeRect(this.destinationPosition.x, this.destinationPosition.y, tilesize, tilesize);
-        context.restore();
-
-        context.drawImage(this.sprite.sheet, this.sprite.x * this.sprite.width, this.sprite.y * this.sprite.height, this.sprite.width, this.sprite.width, this.position.x + HALF_TILE - this.half_width, this.position.y + HALF_TILE - this.half_height, this.width, this.height);
+        if (this.game.debug === true)
+        {
+            context.save();
+            context.fillStyle = "#00ff00";
+            context.fillRect(this.position.x, this.position.y, tilesize, tilesize);
+    
+            context.strokeStyle = "#ffff00";
+            context.strokeRect(this.destinationPosition.x, this.destinationPosition.y, tilesize, tilesize);
+            context.restore();
+        }
+        context.drawImage(this.sprite.sheet, this.sprite.x * this.sprite.width, this.sprite.y * this.sprite.height, this.sprite.width, this.sprite.width, this.position.x + HALF_TILE - this.half_width, this.position.y + tilesize - this.height, this.width, this.height);
     }
 }
